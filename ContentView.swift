@@ -9,13 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var waterAmount = 0.0
+    @State private var inputValue = ""
+    @State private var selectedInputUnit = 0.0
+    @State private var selectedOutputUnit = 1.0
+    
+    let units = ["Milliliters", "Liters", "Deciliters", "Centiliters"]
     
     var body: some View {
         NavigationStack {
             Form {
                 Section {
-                    
+                    TextField("Enter value", text: $inputValue)
+                        .keyboardType(.decimalPad)
                 }
             }
             .navigationTitle("Conversions")
