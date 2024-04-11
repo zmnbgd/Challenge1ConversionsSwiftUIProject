@@ -21,9 +21,22 @@ struct ContentView: View {
                 Section {
                     TextField("Enter value", text: $inputValue)
                         .keyboardType(.decimalPad)
+                    
+                    Picker("Input Unit", selection: $selectedInputUnit) {
+                        ForEach(0..<units.count) {
+                            Text(self.units[$0])
+                        }
+                    }
                 }
             }
             .navigationTitle("Conversions")
+        }
+        Section(header: Text("Result")) {
+            Picker("Output Unit", selection: $selectedOutputUnit) {
+                ForEach(0..<units.count) {
+                    Text(self.units[$0])
+                }
+            }
         }
     }
 }
