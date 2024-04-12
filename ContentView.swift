@@ -15,6 +15,45 @@ struct ContentView: View {
     
     let units = ["Milliliters", "Liters", "Deciliters", "Centiliters"]
     
+    
+    var convertedValue: Double {
+        let inputValue = Double(self.inputValue) ?? 0
+        let liters = inputValue / 1000
+        
+        var outputLiters: Double = 0
+        
+        switch selectedInputUnit {
+        case 0: // Milliliters
+            outputLiters = liters
+        case 1: // Liters
+            outputLiters = inputValue
+        case 2: // Deciliters
+            outputLiters = liters / 10
+        case 3: // Centiliters
+            outputLiters = liters / 100
+        default:
+            break
+        }
+        
+        var outputValue: Double = 0
+        
+        switch selectedOutputUnit {
+        case 0: // Milliliters
+            outputValue = outputLiters * 1000
+        case 1: // Liters
+            outputValue = outputLiters
+        case 2: // Deciliters
+            outputValue = outputLiters * 10
+        case 3: // Centiliters
+            outputValue = outputLiters * 100
+        default:
+            break
+        }
+        
+        return outputValue
+    }
+    
+    
     var body: some View {
         NavigationStack {
             Form {
