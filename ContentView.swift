@@ -67,16 +67,24 @@ struct ContentView: View {
                         }
                     }
                 }
+                //MARK:
+                Section(header: Text("Output Unit")) { // Moved this section inside Form
+                    Picker("Output Unit", selection: $selectedOutputUnit) {
+                        ForEach(0..<units.count) {
+                            Text(self.units[$0])
+                        }
+                    }
+                }
             }
             .navigationTitle("Conversions")
         }
-        Section(header: Text("Result")) {
-            Picker("Output Unit", selection: $selectedOutputUnit) {
-                ForEach(0..<units.count) {
-                    Text(self.units[$0])
-                }
-            }
-        }
+//        Section(header: Text("Result")) {
+//            Picker("Output Unit", selection: $selectedOutputUnit) {
+//                ForEach(0..<units.count) {
+//                    Text(self.units[$0])
+//                }
+//            }
+//        }
     }
 }
 
