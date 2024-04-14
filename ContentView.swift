@@ -75,6 +75,9 @@ struct ContentView: View {
                         }
                     }
                 }
+                Section(header: Text("Result")) {
+                    Text("\(convertedValue, specifier: "%.2f") \(units[Int(selectedOutputUnit)])")
+                }
             }
             .navigationTitle("Conversions")
         }
