@@ -62,16 +62,18 @@ struct ContentView: View {
                         .keyboardType(.decimalPad)
                     
                     Picker("Input Unit", selection: $selectedInputUnit) {
-                        ForEach(0..<units.count) {
-                            Text(self.units[$0])
+                        ForEach(0..<units.count) { index in
+                            //Text(self.units[$0])
+                            Text(self.units[index]).tag(Double(index))
                         }
                     }
                 }
                 //MARK:
                 Section(header: Text("Output Unit")) { // Moved this section inside Form
                     Picker("Output Unit", selection: $selectedOutputUnit) {
-                        ForEach(0..<units.count) {
-                            Text(self.units[$0])
+                        ForEach(0..<units.count) { index in
+                            //Text(self.units[$0])
+                            Text(self.units[index]).tag(Double(index))
                         }
                     }
                 }
